@@ -71,7 +71,7 @@ $('li').on('click', function(){
   }
 });
 $('.pictureDisplay').on('click', function(){
-  for(var i = 0; i < albums[i].album.length;i++){
+  for(var i = 0; i < albums.length;i++){ 
     if($(this).attr('class') === $('.pictureDisplay.pic' + i).attr('class')){
       $('.pictureDisplay.pic' + i).addClass('enlargedPicture');
       $('.pictureTitle.pic' + i).css('left', '80px');

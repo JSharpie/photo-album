@@ -13,7 +13,11 @@ var albums = [
         {
           photo: "http://lorempixel.com/200/200/sports/3",
           name: "photo3name"
-      }
+        },
+        {
+          photo:"http://lorempixel.com/200/200/sports/4",
+          name: "photo4name"
+        }
     ]
   },
   {
