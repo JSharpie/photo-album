@@ -1,9 +1,61 @@
 .pictures-grid{
   display:none;
+  position:relative;
+  left:350px;
 }
 .displayed{
   display:inline-block;
 }
 .invisible{
   display:none;
+}
+.grid-albums{
+  display:inline-block;
+  margin: 0 auto;
+}
+section{
+  display:inline-block;
+  position:absolute;
+  left:150px;
+  top:50px;
+}
+aside{
+  position:absolute;
+  display:inline-block;
+  background-color:gray;
+  height:100%;
+  padding-right:20px;
+}
+li{
+  cursor:pointer;
+  list-style:none;
+  margin-left:10px;
+  font-size:30px;
+}
+img{
+  cursor:pointer;
+  position:relative;
+}
+h3{
+  text-align:center;
+  position:relative;
+}
+.enlargedPicture{
+  display:inline-block;
+  position:absolute;
+  width:300px;
+}
+.return{
+  background-color:gray;
+  width:100px;
+  font-size:20px;
+  position:relative;
+  bottom:0px;
+}
+h4{
+  position:absolute;
+  bottom:500px;
+  left:620px;
+  text-align:center;
+  font-size:30px;
 }

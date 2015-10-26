@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>Photo Album</title>
-    <link rel="stylesheet" href="compile.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="compile.css" media="screen" title="no title" charset="utf-8">
     <script type="text/html" id="albumTemp">
       <div class = "grid-albums">
         <h2 class = "albumsTitle"><%= name %></h2>
@@ -17,15 +17,21 @@
         <img class = "pictureDisplay" src=<%= albumPhoto %>>
       </div>
     </script>
+    <script type="text/html" id="asideTemp">
+        <li class="albumLiItem"><%= name %></li>
+      </script>
   </head>
   <body>
     <header>
       <h1>My Albums</h1>
     </header>
+    <aside>
+
+    </aside>
     <section>
 
     </section>
-    <div class = "a b c"></div>
+    <div class="return invisible">Return to Album</button>
     <script src="bower_components/jquery/dist/jquery.js" charset="utf-8"></script>
     <script src="bower_components/underscore/underscore.js" charset="utf-8"></script>
     <script src="albums.js"></script>
