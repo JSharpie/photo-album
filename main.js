@@ -15,41 +15,44 @@ var albumPage= {
     $('.return').addClass('invisible');
     $('h4').removeClass('invisible');
     $('aside').removeClass('invisible');
+  },
+  test: function(){
+    _.each(albums, function(item, idx, arr){
+      $('aside').append(albumListTemp(item));
+      $('aside').addClass('invisible');
+      className = 'li-displayed-' + linc;
+      if(idx === linc-1){
+        $('.albumLiItem:nth-child(' + linc + ')').addClass(className);
+        linc++;
+      }
+      _.each(item.album, function(item){
+        albumPhoto = item.photo;
+        photoName = item.name;
+        $('section').append(picturesTemplate(item));
+      });
+    });
+    _.each(albums, function(item, idx, arr){
+      coverPhoto = item.album[0].photo;
+      $('section').append(albumTemplate(item));
+        if(idx === inc-1){
+          className = "displayed-" + inc;
+          _.each(item.album, function(item){
+            $('.pictures-grid:nth-child(' + int + ')').addClass(className);
+            for(var i = 0; i < albums[0].album.length; i++){
+              $('.pictureDisplay:eq(' + (pint-1) + ')').addClass('pic' + i);
+              $('.pictureTitle:eq(' + (pint-1) + ')').addClass('pic' + i);
+              pint++;
+            }
+            int++;
+        });
+        inc++;
+      }
+      className = "displayed-" + idx;
+      $('.albumsDisplay:eq(' + idx + ')').addClass(className);
+    });
   }
 };
-_.each(albums, function(item, idx, arr){
-  $('aside').append(albumListTemp(item));
-  $('aside').addClass('invisible');
-  className = 'li-displayed-' + linc;
-  if(idx === linc-1){
-    $('.albumLiItem:nth-child(' + linc + ')').addClass(className);
-    linc++;
-  }
-  _.each(item.album, function(item){
-    albumPhoto = item.photo;
-    photoName = item.name;
-    $('section').append(picturesTemplate(item));
-  });
-});
-_.each(albums, function(item, idx, arr){
-  coverPhoto = item.album[0].photo;
-  $('section').append(albumTemplate(item));
-    if(idx === inc-1){
-      className = "displayed-" + inc;
-      _.each(item.album, function(item){
-        $('.pictures-grid:nth-child(' + int + ')').addClass(className);
-        for(var i = 0; i < albums[0].album.length; i++){
-          $('.pictureDisplay:eq(' + (pint-1) + ')').addClass('pic' + i);
-          $('.pictureTitle:eq(' + (pint-1) + ')').addClass('pic' + i);
-          pint++;
-        }
-        int++;
-    });
-    inc++;
-  }
-  className = "displayed-" + idx;
-  $('.albumsDisplay:eq(' + idx + ')').addClass(className);
-});
+albumPage.test();
 var albumPhoto;
 var photoName;
 $('.albumsDisplay').on('click', function(){
@@ -89,7 +92,6 @@ $('.pictureDisplay').on('click', function(){
     else{
         $('.pictureDisplay.pic' + i).addClass('invisible');
         $('.pictureTitle.pic' + i).addClass('invisible');
-        // $('.return:eq('+i+')').removeClass('invisible');
     }
   }
 });
