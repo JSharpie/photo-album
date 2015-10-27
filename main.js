@@ -7,6 +7,16 @@ var linc = 1;
 var inc = 1;
 var int = 1;
 var className;
+var albumPage= {
+  reset: function(){
+    $('.pictureTitle').css('left', '0px').removeClass('invisible');
+    $('.pictureDisplay').removeClass('enlargedPicture invisible');
+    $('.albumLiItem').removeClass('invisible');
+    $('.return').addClass('invisible');
+    $('h4').removeClass('invisible');
+    $('aside').removeClass('invisible');
+  }
+};
 _.each(albums, function(item, idx, arr){
   $('aside').append(albumListTemp(item));
   $('aside').addClass('invisible');
@@ -15,8 +25,6 @@ _.each(albums, function(item, idx, arr){
     $('.albumLiItem:nth-child(' + linc + ')').addClass(className);
     linc++;
   }
-});
-_.each(albums, function(item, idx, arr){
   _.each(item.album, function(item){
     albumPhoto = item.photo;
     photoName = item.name;
@@ -28,7 +36,6 @@ _.each(albums, function(item, idx, arr){
   $('section').append(albumTemplate(item));
     if(idx === inc-1){
       className = "displayed-" + inc;
-
       _.each(item.album, function(item){
         $('.pictures-grid:nth-child(' + int + ')').addClass(className);
         for(var i = 0; i < albums[0].album.length; i++){
@@ -65,13 +72,12 @@ $('li').on('click', function(){
         $('.pictures-grid.displayed-' + (j+1)).removeClass('displayed');
       }
       $('.pictures-grid.displayed-' + (i+1)).addClass('displayed');
-      $('.pictureDisplay').removeClass('invisible');
-      $('.pictureDisplay').removeClass('enlargedPicture');
+      $('.pictureDisplay').removeClass('invisible enlargedPicture');
     }
   }
 });
 $('.pictureDisplay').on('click', function(){
-  for(var i = 0; i < albums.length;i++){ 
+  for(var i = 0; i < albums.length;i++){
     if($(this).attr('class') === $('.pictureDisplay.pic' + i).attr('class')){
       $('.pictureDisplay.pic' + i).addClass('enlargedPicture');
       $('.pictureTitle.pic' + i).css('left', '80px');
@@ -90,13 +96,6 @@ $('.pictureDisplay').on('click', function(){
 $('.return').on('click', function(){
   $('.return').removeClass('invisible');
   if($(this).attr('class') === $('.return').attr('class')){
-    $('.pictureTitle').css('left', '0px');
-    $('.pictureDisplay').removeClass('enlargedPicture');
-    $('.pictureDisplay').removeClass('invisible');
-    $('.albumLiItem').removeClass('invisible');
-    $('.pictureTitle').removeClass('invisible');
-    $('.return').addClass('invisible');
-    $('h4').removeClass('invisible');
-    $('aside').removeClass('invisible');
+    albumPage.reset();
   }
 });
